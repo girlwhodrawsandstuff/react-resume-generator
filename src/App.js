@@ -1,14 +1,18 @@
 import "./App.css";
+import Form from "./components/Form/Form";
 
 function App() {
   const temporaryData = {
-    name: "Varsha Singh",
+    firstName: "Varsha",
+    lastName: "Singh",
     role: "Frontend Developer",
+    image: "image",
   };
 
   return <div className="App">
     <h1>Resume Generator</h1>
-    <h2>{temporaryData?.name}</h2>
+    <Form />
+    <h2>{temporaryData?.firstName} {temporaryData?.lastName}</h2>
     <h4>{temporaryData?.role}</h4>
   </div>;
 }
