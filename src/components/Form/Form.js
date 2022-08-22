@@ -1,26 +1,34 @@
 function Form() {
-  const submitForm = () => {
-    console.log('Submitted!')
-  };
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const myFormData = new FormData(event.target);
+
+    const formDataObject = {};
+    myFormData.forEach((value, key) => (formDataObject[key] = value));
+  }
 
   return (
     <div className="App">
       <h2>Introduction</h2>
-      <form>
-        <label htmlFor="firstName">First Name</label>
-        <input type="text" id="firstName" name="firstName"></input>
-        <label htmlFor="lastName">Last Name</label>
-        <input type="text" id="lastName" name="lastName"></input>
-        <label htmlFor="role">Role</label>
-        <input type="text" id="role" name="role"></input>
-        <label htmlFor="profilePicture">Profile picture</label>
-        <input
-          type="file"
-          id="profilePicture"
-          name="profilePicture"
-          accept="image/png, image/jpeg"
-        />
-        <input type="button" onClick={submitForm} value="Submit"></input>
+      <form onSubmit={handleSubmit}>
+        <label>
+          First Name
+          <input type="text" name="firstName" />
+        </label>
+        <label>
+          Last Name
+          <input type="text" name="lastName" />
+        </label>
+        <label>
+          Role
+          <input type="text" name="role" />
+        </label>
+        <label>
+          Profile Picture
+          <input type="text" name="profilePicture" />
+        </label>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

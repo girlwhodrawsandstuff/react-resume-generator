@@ -6,7 +6,7 @@ function App() {
     firstName: "Varsha",
     lastName: "Singh",
     role: "Frontend Developer",
-    image: "image",
+    profilePicture: "image",
   };
 
   return <div className="App">
