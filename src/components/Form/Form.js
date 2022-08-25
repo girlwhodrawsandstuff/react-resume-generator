@@ -1,21 +1,8 @@
-import { useState } from "react";
-
-function Form() {
-  const [formData, setFormData] = useState({});
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const enteredFormData = new FormData(event.target);
-    const formDataObject = enteredFormData.forEach((value, key) => (formData[key] = value));
-
-    setFormData({...formDataObject});
-  }
-
+function Form({updateFormData}) {
   return (
     <div className="App">
       <h2>Introduction</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={updateFormData}>
         <label>
           First Name
           <input type="text" name="firstName" />
