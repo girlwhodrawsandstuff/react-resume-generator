@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Form from "./components/Form/Form";
+import ResumeDisplay from "./components/ResumeDisplay/ResumeDisplay";
 
 function App() {
   const [formData, setFormData] = useState({});
@@ -13,7 +14,10 @@ function App() {
       (value, key) => (formData[key] = value)
     );
 
-    setFormData((previousFormData) => ({ ...previousFormData, formDataObject }));
+    setFormData((previousFormData) => ({
+      ...previousFormData,
+      formDataObject,
+    }));
   }
 
   useEffect(() => {
@@ -24,10 +28,7 @@ function App() {
     <div className="App">
       <h1>Resume Generator</h1>
       <Form formData={formData} updateFormData={updateFormData} />
-      <h2>
-        {formData?.firstName} {formData?.lastName}
-      </h2>
-      <h4>{formData?.role}</h4>
+      <ResumeDisplay formData={formData} />
     </div>
   );
 }

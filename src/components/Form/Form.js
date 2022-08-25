@@ -1,6 +1,6 @@
 function Form({updateFormData}) {
   return (
-    <div className="App">
+    <div>
       <h2>Introduction</h2>
       <form onSubmit={updateFormData}>
         <label>
