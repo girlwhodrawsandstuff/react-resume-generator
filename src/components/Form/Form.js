@@ -1,11 +1,15 @@
+import { useState } from "react";
+
 function Form() {
+  const [formData, setFormData] = useState({});
+
   function handleSubmit(event) {
     event.preventDefault();
 
-    const myFormData = new FormData(event.target);
+    const enteredFormData = new FormData(event.target);
+    const formDataObject = enteredFormData.forEach((value, key) => (formData[key] = value));
 
-    const formDataObject = {};
-    myFormData.forEach((value, key) => (formDataObject[key] = value));
+    setFormData({...formDataObject});
   }
 
   return (
