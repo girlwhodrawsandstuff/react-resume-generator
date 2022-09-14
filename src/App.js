@@ -27,8 +27,10 @@ function App() {
   return (
     <div className="App">
       <h1>Resume Generator</h1>
-      <Form formData={formData} updateFormData={updateFormData} />
-      <ResumeDisplay formData={formData} />
+      <div className="Sections">
+        <Form formData={formData} updateFormData={updateFormData} />
+        <ResumeDisplay formData={formData} />
+      </div>
     </div>
   );
 }
